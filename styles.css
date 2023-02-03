@@ -1,32 +1,41 @@
+/* using the mobile first approach */
+/* always remember to reset the css with this */
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
 body{
     margin: 0;
-    font-size: 20px;
+    /* font size is too huge for mobile*/
+    /* font-size: 20px; */
     text-align: center;
     font-family: 'Itim', cursive;
 }
-
+.wrapper{
+    max-width: 450px;
+    width: 100%;
+}
 #top-layer{
     background-image: url("images/Tema1.jpg");
     background-size: cover;
     background-position: center;
-    padding: 50px 0px 100px 0px;
+    padding: 2em 3em;
+    /* padding: 50px 0px 100px 0px; */
 }
-
 .text-1{
-    color: white;
     background: #1D3557;
-    width: 200px;
-    margin: auto;
-    padding: 3px;
-    border-radius: 15px;
+    width: max-content;
+    padding-inline: 0.4em;
 }
-
 .text-2{
-    color: white;
     background: #457B9D;
-    width: 500px;
+}
+/* since the text1 and text 2 share most of the same properties, best practice is to combine those selectors */
+.text-1,.text-2{
+    color: white;
+    display: block;
     margin: auto;
-    padding: 3px;
     border-radius: 15px;
     margin-top: 15px;
 }
@@ -34,15 +43,18 @@ body{
 .activ-ty{
     color: rgb(29, 28, 134);
     font-family: inherit;
+    padding: 1em;
 }
 
 
 
 .activities-to-do{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 50px 0;
+    flex-direction: column;
+    justify-content: space-between;
+    /* use gap tp create a space between flex children */
+    row-gap: 2em;
+    padding: 2em;
     width: 100%;
     background-color: #F1FAEE;
 }
@@ -56,9 +68,11 @@ body{
 }
 
 .act-img{
-    width: 250px;
-    height: 250px;
-    border-radius: 700px;
+    width: 150px;
+    height: 150px;
+    /* use 50% if you want a circle*/
+    border-radius: 50%;
+    /* border-radius: 700px; */
 }
 
 .activity-par{
@@ -66,24 +80,30 @@ body{
 }
 
 .guide-text{
-    width: 700px;
+    /* width: 700px; */
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
     border: 1px dotted- slateblue;
-    padding: 20px;
+    padding: 0.4em;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
     background: #ddebf8;
     color: #2b2839;
     border-bottom: 6px solid #d8cefe;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
-
+.picture-quote{
+    font-size: 0.8rem;
+}
+.avatar__container{
+    align-self: center;
+}
 .profile-pic{
-    width: 250px;
+    /* width: 150px; */
+    width: 100%;
 }
 .avatar-bounce-in:hover,
 .avatar-bounce-in:focus,
@@ -102,4 +122,26 @@ body{
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+}
+
+/* used media query for desktop view */
+@media screen and (min-width: 601px) {
+    .wrapper{
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    #top-layer{
+    padding: 50px 0px 100px 0px;
+    }
+    .text-1,.text-2{
+    width: max-content;
+    padding:0.4em 1em;
+    }
+    .activities-to-do{
+        flex-direction: row;
+    }
+    .guide-text{
+        width: 500px;
+    }
+  
 }
